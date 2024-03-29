@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
 module.exports = {
+     mode: 'development',
     entry: {
         app: ['./src/js/main.js',"./src/styles/homepage.css"],
         blogpost: ['./src/js/blogpost.js']
@@ -12,14 +13,14 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Blog',
-            template:'./src/pages/index.html',
-            filename:"pages/homepage.html",
+            template:'./src/index.html',
+            filename:"index.html",
             chunks: ["app"]
         }),
         new HtmlWebpackPlugin({
             title: 'Blog',
             template:'./src/pages/blogpost.html',
-            filename:"pages/blogpost.html",
+            filename:"blog/index.html",
             chunks: ["blogpost"]
         }),
         new MiniCssExtractPlugin({
@@ -27,10 +28,17 @@ module.exports = {
         }),
 
     ],
+    devtool: 'inline-source-map',
+    devServer: {
+        static: './dist',
+        watchFiles: ['./src'],
+        hot:true,
+      },
+     
     output: {
         filename: 'js/[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
+         clean: true,
     },
     module: {
         rules: [
