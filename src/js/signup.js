@@ -14,10 +14,14 @@ async function signup() {
                 "Content-Type": "application/json"
             }
         })
-        if (!response.ok) {
-            throw Error(response.status)
+        if(response.status === 400){
+            //Load Error messages
+            const responseData = await response.json()
+            console.log(responseData)
+            return;
+        }else{
+            window.location.href = '/login';
         }
-        const data = await response.json()
     }
     catch (err) {
         console.log("error: " + err)
