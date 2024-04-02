@@ -14,6 +14,20 @@
     background-color: rgb(255, 255, 255);
 }
 
+.blog-full{
+    padding: 10px;
+    display: flex;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px gray;
+
+    h2 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
 .blog-link {
     text-decoration: none;
     color: black;
@@ -54,4 +68,17 @@
     display: flex;
     flex-direction: column;
     gap: 30px
+}
+
+.blog-text-full {
+    margin: 10px;
+    position: relative;
+    overflow-y: hidden;
+    width: 900px;
+    max-width: 900px;
+    max-height: 90px;
+    text-overflow: ellipsis;
+    @media (max-width: 768px) {
+        width: auto;
+    }
 }

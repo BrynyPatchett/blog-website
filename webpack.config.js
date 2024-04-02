@@ -6,8 +6,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
      mode: 'development',
     entry: {
-        app: ['./src/js/main.js',"./src/styles/homepage.css","/src/js/navbar.js","./src/styles/index.css"],
-        blogpost: ['./src/js/blogpost.js','/src/js/navbar.js',"./src/styles/index.css"],
+        app: ['./src/js/main.js',"./src/styles/blog.css","/src/js/navbar.js","./src/styles/index.css"],
+        blogpost: ['./src/js/blogpost.js','/src/js/navbar.js',"./src/styles/index.css","./src/styles/blog.css"],
         signup:['/src/js/navbar.js',"/src/js/signup.js","./src/styles/index.css"],
         login:['/src/js/navbar.js',"/src/js/login.js","./src/styles/index.css"]
     },

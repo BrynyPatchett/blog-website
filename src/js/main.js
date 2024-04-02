@@ -1,5 +1,5 @@
 console.log("Hello FROM HOMEPAGE")
-import '../styles/homepage.css'
+import '../styles/blog.css'
 const content = document.body.querySelector(".content");
 
 async function getposts() {
