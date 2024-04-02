@@ -8,7 +8,7 @@ module.exports = {
     entry: {
         app: ['./src/js/main.js',"./src/styles/homepage.css","/src/js/navbar.js","./src/styles/index.css"],
         blogpost: ['./src/js/blogpost.js','/src/js/navbar.js',"./src/styles/index.css"],
-        signup:['/src/js/navbar.js',"./src/styles/index.css"],
+        signup:['/src/js/navbar.js',"/src/js/signup.js","./src/styles/index.css"],
         login:['/src/js/navbar.js',"/src/js/login.js","./src/styles/index.css"]
     },
     plugins: [
