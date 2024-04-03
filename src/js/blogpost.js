@@ -9,11 +9,15 @@ const content = document.body.querySelector(".content");
 async function getpost() {
 
     try {
-        const response = await fetch(`http://localhost:3000/api/posts/${blogid}`)
-        if (!response.ok) {
+        const [blogResponse,commentResponse] = await Promise.all([
+            fetch(`http://localhost:3000/api/posts/${blogid}`),
+            fetch(`http://localhost:3000/api/posts/${blogid}/comments`),
+        ])
+
+        if (!blogResponse.ok) {
             throw new Error();
         }
-        const blog = await response.json()
+        const blog = await blogResponse.json()
         const blogItem = document.createElement('div')
         blogItem.classList.add('blog-full')
         const blogLink = document.createElement('div')
@@ -39,8 +43,13 @@ async function getpost() {
         blogLink.appendChild(blogText)
         blogItem.appendChild(blogLink)
         content.append(blogItem)
-        
-       
+
+        if (!commentResponse.ok) {
+            throw new Error();
+        }
+        const comments = await commentResponse.json()
+        console.log(comments)
+
     }
     catch (err) {
         console.log("error: " + err)
