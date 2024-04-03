@@ -1,4 +1,4 @@
-console.log("Hello FROM BLOG !!!!!")
+import { jwtUser } from './account';
 import '../styles/blog.css'
 const commentButton = document.getElementById("comment-button");
 const form = document.getElementById("comment-form");
@@ -12,8 +12,8 @@ async function getpost() {
 
     try {
         const [blogResponse,commentResponse] = await Promise.all([
-            fetch(`http://localhost:3000/api/posts/${blogid}`),
-            fetch(`http://localhost:3000/api/posts/${blogid}/comments`),
+            fetch(`http://localhost:3000/api/posts/${blogid}`,),
+            fetch(`http://localhost:3000/api/posts/${blogid}/comments`)
         ])
 
         if (!blogResponse.ok) {
@@ -75,7 +75,16 @@ async function getpost() {
             commentInfo.appendChild(commentAuthor)
             commentInfo.appendChild(commentDate)
             commentItem.appendChild(commentInfo)
+
+
             commentItem.appendChild(commentContent)
+            if(jwtUser.sub === comment.user._id || jwtUser.sub == blog.author._id){
+
+                const deleteButton = document.createElement('button')
+                deleteButton.classList.add('deleteButton')
+                deleteButton.textContent = "Delete";
+                commentItem.appendChild(deleteButton)
+            }
             commentList.appendChild(commentItem)
 
         });

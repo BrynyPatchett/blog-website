@@ -16,9 +16,9 @@ async function signup() {
                 "Content-Type": "application/json"
             }
         })
-        const data = await response.json()
+
         if(!response.ok){
-            console.log("asdsadsa")
+            const data = await response.json()
             const errorList = document.createElement('ul')
             
             data.forEach(error => {
@@ -28,7 +28,7 @@ async function signup() {
             });
             console.log(errorList)
             errorDiv.replaceChildren(errorList)
-            throw Error();
+            return
 
         }else{
             window.location.href = '/login';
