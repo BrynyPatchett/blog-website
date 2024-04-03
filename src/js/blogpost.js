@@ -4,7 +4,7 @@ const commentButton = document.getElementById("comment-button");
 const form = document.getElementById("comment-form");
 const search = new URLSearchParams(document.location.search)
 commentButton.addEventListener('click', createComment)
-
+const errorDiv = document.getElementById("errors-container");
 const blogid = search.get('id');
 const content = document.body.querySelector(".content");
 
@@ -94,7 +94,6 @@ getpost();
 
 async function createComment(){
     const formData = new FormData(form);
-    console.log("send a post request to get log in token, write to local storage and , re-direct if successfull")
     try {
         const response = await fetch(`http://localhost:3000/api/posts/${blogid}/comments/`, {
             method: 'POST', 
@@ -105,8 +104,11 @@ async function createComment(){
             }
         })
         if(!response.ok){
-            //Load Error messages
-            alert("Please make sure you are logged in")
+            const errorList = document.createElement('ul')
+            const errorElem = document.createElement('li')
+            errorElem.textContent = "User is not Logged in"
+            errorList.appendChild(errorElem)
+            errorDiv.replaceChildren(errorList)
             return;
         }else{
             location.reload()

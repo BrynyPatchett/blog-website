@@ -3,6 +3,8 @@ const signupButton = document.getElementById("signup-button");
 console.log(signupButton)
 const form = document.getElementById("signup-form");
 signupButton.addEventListener('click', signup)
+
+const errorDiv = document.getElementById("errors-container");
 async function signup() {
     const formData = new FormData(form);
     console.log("send a post request to get log in token, write to local storage and , re-direct if successfull")
@@ -14,11 +16,20 @@ async function signup() {
                 "Content-Type": "application/json"
             }
         })
-        if(response.status === 400){
-            //Load Error messages
-            const responseData = await response.json()
-            console.log(responseData)
-            return;
+        const data = await response.json()
+        if(!response.ok){
+            console.log("asdsadsa")
+            const errorList = document.createElement('ul')
+            
+            data.forEach(error => {
+                const errorElem = document.createElement('li')
+                errorElem.textContent = error.msg;
+                errorList.appendChild(errorElem)
+            });
+            console.log(errorList)
+            errorDiv.replaceChildren(errorList)
+            throw Error();
+
         }else{
             window.location.href = '/login';
         }
