@@ -17,6 +17,8 @@ async function login() {
             throw Error(response.status)
         }
         const data = await response.json()
+        localStorage.setItem('userToken',data.token)
+        window.location.href = '/';
     }
     catch (err) {
         console.log("error: " + err)
