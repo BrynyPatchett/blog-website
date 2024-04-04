@@ -12,7 +12,7 @@ async function getpost() {
 
     try {
         const [blogResponse,commentResponse] = await Promise.all([
-            fetch(`http://localhost:3000/api/posts/${blogid}`,),
+            fetch(`http://localhost:3000/api/posts/${blogid}`),
             fetch(`http://localhost:3000/api/posts/${blogid}/comments`)
         ])
 
@@ -78,20 +78,19 @@ async function getpost() {
 
 
             commentItem.appendChild(commentContent)
-            if(jwtUser.sub === comment.user._id || jwtUser.sub == blog.author._id){
+            if(jwtUser && (jwtUser.sub === comment.user._id || jwtUser.sub == blog.author._id)){
 
                 const deleteButton = document.createElement('button')
                 deleteButton.classList.add('deleteButton')
                 deleteButton.textContent = "Delete";
                 commentItem.appendChild(deleteButton)
+                deleteButton.addEventListener("click",() => deleteComment(comment._id))
             }
             commentList.appendChild(commentItem)
 
         });
 
         content.append(commentList)
-
-
     }
     catch (err) {
         console.log("error: " + err)
@@ -118,6 +117,28 @@ async function createComment(){
             errorElem.textContent = "User is not Logged in"
             errorList.appendChild(errorElem)
             errorDiv.replaceChildren(errorList)
+            return;
+        }else{
+            location.reload()
+        } 
+    }
+    catch (err) {
+        console.log("error: " + err)
+    }
+    console.log("done")
+}
+
+
+async function deleteComment(commentID){
+    try {
+        const response = await fetch(`http://localhost:3000/api/posts/${blogid}/comments/${commentID}`, {
+            method: 'DELETE', 
+             headers: {
+                "Content-Type": "application/json",
+                'Authorization': 'Bearer ' + localStorage.getItem('userToken')
+            }
+        })
+        if(!response.ok){
             return;
         }else{
             location.reload()
