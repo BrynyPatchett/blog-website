@@ -13,7 +13,6 @@ async function getposts() {
         const blogList = document.createElement('div')
         blogList.classList.add('blog-list')
         data.forEach(blog => {
-            console.log(blog)
             const blogItem = document.createElement('div')
             blogItem.classList.add('blog')
             const blogLink = document.createElement('a')
@@ -49,7 +48,6 @@ async function getposts() {
     catch (err) {
         console.log("error: " + err)
     }
-    console.log("done")
 }
 
 getposts();

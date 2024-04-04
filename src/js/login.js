@@ -5,8 +5,7 @@ loginButton.addEventListener('click', login)
 const errorDiv = document.getElementById("errors-container");
 async function login() {
     const formData = new FormData(form);
-    console.log("send a post request to get log in token, write to local storage and , re-direct if successfull")
-    try {
+        try {
         const response = await fetch('http://localhost:3000/api/users/login', {
             method: 'POST', 
             body: JSON.stringify(Object.fromEntries(formData)),
@@ -32,5 +31,4 @@ async function login() {
     catch (err) {
         console.log("error: " + err)
     }
-    console.log("done")
 }

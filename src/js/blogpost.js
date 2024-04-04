@@ -54,7 +54,6 @@ async function getpost() {
         const commentList = document.createElement('div')
         commentList.classList.add('commentList')
         comments.forEach(comment => {
-            console.log(comment)
             const commentItem = document.createElement('div')
             commentItem.classList.add('comment')
 
@@ -95,7 +94,6 @@ async function getpost() {
     catch (err) {
         console.log("error: " + err)
     }
-    console.log("done")
 }
 
 getpost();
@@ -125,7 +123,6 @@ async function createComment(){
     catch (err) {
         console.log("error: " + err)
     }
-    console.log("done")
 }
 
 
@@ -147,5 +144,4 @@ async function deleteComment(commentID){
     catch (err) {
         console.log("error: " + err)
     }
-    console.log("done")
 }
