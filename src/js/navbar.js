@@ -31,11 +31,9 @@ if (user) {
     signup.classList.add('navItem')
 
     if (login.pathname === currentPage) {
-        // console.log("login")
         login.classList.add('active')
     }
     if (signup.pathname === currentPage) {
-        // console.log("singup")
         signup.classList.add('active')
     }
 
