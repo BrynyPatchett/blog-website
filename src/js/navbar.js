@@ -7,7 +7,7 @@ const accountDiv = document.createElement('div');
 accountDiv.classList.add('accountDiv')
 
 const home = document.createElement('a');
-home.href = "/";
+home.href = "/blog-website/";
 home.textContent = "Home"
 home.classList.add('home')
 home.classList.add('navItem')
@@ -21,12 +21,12 @@ if (user) {
 
 } else {
     const login = document.createElement('a');
-    login.href = "https://brynypatchett.github.io/blog-website/login";
+    login.href = "/blog-website/login";
     login.textContent = "Log In"
     login.classList.add('navItem')
 
     const signup = document.createElement('a');
-    signup.href = "https://brynypatchett.github.io/blog-website/signup";
+    signup.href = "/blog-website/signup";
     signup.textContent = "Sign up"
     signup.classList.add('navItem')
 
