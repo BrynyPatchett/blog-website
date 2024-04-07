@@ -26,7 +26,7 @@ async function login() {
             throw Error();
         }
         localStorage.setItem('userToken',data.token)
-        window.location.href = '/blog-website/';
+        window.location.href = '/';
     }
     catch (err) {
         console.log("error: " + err)

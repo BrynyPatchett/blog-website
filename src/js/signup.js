@@ -29,7 +29,7 @@ async function signup() {
             return
 
         }else{
-            window.location.href = 'https://brynypatchett.github.io/blog-website/login';
+            window.location.href = '/login';
         }
     }
     catch (err) {
