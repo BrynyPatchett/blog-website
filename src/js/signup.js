@@ -8,7 +8,7 @@ const errorDiv = document.getElementById("errors-container");
 async function signup() {
     const formData = new FormData(form);
     try {
-        const response = await fetch('http://localhost:3000/api/users/', {
+        const response = await fetch('https://weak-honorable-degree.glitch.me/api/users/', {
             method: 'POST', 
             body: JSON.stringify(Object.fromEntries(formData)),
              headers: {

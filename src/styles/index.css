@@ -50,3 +50,17 @@ label{
     font-size: 20px;
     padding-bottom: 5px;
 }
+
+#errors-container{
+    color: red;
+}
+
+.form-button{
+    background-color: rgb(226, 226, 226);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    &:hover{
+        background-color: rgb(213, 213, 213);
+    }
+}

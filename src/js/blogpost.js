@@ -12,8 +12,8 @@ async function getpost() {
 
     try {
         const [blogResponse,commentResponse] = await Promise.all([
-            fetch(`http://localhost:3000/api/posts/${blogid}`),
-            fetch(`http://localhost:3000/api/posts/${blogid}/comments`)
+            fetch(`https://weak-honorable-degree.glitch.me/api/posts/${blogid}`),
+            fetch(`https://weak-honorable-degree.glitch.me/api/posts/${blogid}/comments`)
         ])
 
         if (!blogResponse.ok) {
@@ -101,7 +101,7 @@ getpost();
 async function createComment(){
     const formData = new FormData(form);
     try {
-        const response = await fetch(`http://localhost:3000/api/posts/${blogid}/comments/`, {
+        const response = await fetch(`https://weak-honorable-degree.glitch.me/api/posts/${blogid}/comments/`, {
             method: 'POST', 
             body: JSON.stringify(Object.fromEntries(formData)),
              headers: {
@@ -128,7 +128,7 @@ async function createComment(){
 
 async function deleteComment(commentID){
     try {
-        const response = await fetch(`http://localhost:3000/api/posts/${blogid}/comments/${commentID}`, {
+        const response = await fetch(`https://weak-honorable-degree.glitch.me/api/posts/${blogid}/comments/${commentID}`, {
             method: 'DELETE', 
              headers: {
                 "Content-Type": "application/json",

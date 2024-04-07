@@ -5,7 +5,7 @@ const content = document.body.querySelector(".content");
 async function getposts() {
 
     try {
-        const response = await fetch('http://localhost:3000/api/posts/')
+        const response = await fetch('https://weak-honorable-degree.glitch.me/api/posts/')
         if (!response.ok) {
             throw Error(response.status)
         }
