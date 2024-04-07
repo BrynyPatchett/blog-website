@@ -21,12 +21,12 @@ if (user) {
 
 } else {
     const login = document.createElement('a');
-    login.href = "/login";
+    login.href = "https://brynypatchett.github.io/blog-website/login";
     login.textContent = "Log In"
     login.classList.add('navItem')
 
     const signup = document.createElement('a');
-    signup.href = "/signup";
+    signup.href = "https://brynypatchett.github.io/blog-website/signup";
     signup.textContent = "Sign up"
     signup.classList.add('navItem')
 

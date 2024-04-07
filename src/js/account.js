@@ -2,7 +2,7 @@ export const user = localStorage.getItem('userToken');
 
 export function logoutUser(){
     localStorage.removeItem('userToken');
-    window.location.href = '/';
+    window.location.href = 'https://brynypatchett.github.io/blog-website/';
 }
 
 function parseJwt(token) {

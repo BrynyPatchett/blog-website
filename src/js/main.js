@@ -17,7 +17,7 @@ async function getposts() {
             blogItem.classList.add('blog')
             const blogLink = document.createElement('a')
             blogLink.classList.add('blog-link')
-            blogLink.href = `/blog?id=${blog._id}`;
+            blogLink.href = `https://brynypatchett.github.io/blog-website/blog?id=${blog._id}`;
             const blogInfo = document.createElement('div')
             blogInfo.classList.add('blog-info')
 

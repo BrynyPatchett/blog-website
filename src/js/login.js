@@ -26,7 +26,7 @@ async function login() {
             throw Error();
         }
         localStorage.setItem('userToken',data.token)
-        window.location.href = '/';
+        window.location.href = 'https://brynypatchett.github.io/blog-website/';
     }
     catch (err) {
         console.log("error: " + err)
